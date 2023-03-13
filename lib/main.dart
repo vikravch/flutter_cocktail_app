@@ -3,8 +3,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:test_new_project/di/createDependencies.dart';
+import 'package:test_new_project/presentation/screens/root_screen.dart';
 
-Future<String> getRandomCocktail() async {
+Future<Map<String, dynamic> > getRandomCocktail() async {
   final response = await http.post(
     Uri.parse('https://www.thecocktaildb.com/api/json/v1/1/random.php'),
     headers: <String, String>{
@@ -17,7 +19,7 @@ Future<String> getRandomCocktail() async {
     // If the server did return a 201 CREATED response,
     // then parse the JSON.
     //return Album.fromJson(jsonDecode(response.body));
-    return response.body;
+    return jsonDecode(response.body);
   } else {
     // If the server did not return a 201 CREATED response,
     // then throw an exception.
@@ -53,25 +55,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Future<String>? _futureCocktail;
+  Future<Map<String, dynamic>>? _futureCocktail;
 
   @override
   Widget build(BuildContext context) {
+    createDependencies();
+
     return MaterialApp(
       title: 'Create Data Example',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
+      home: const Scaffold(
         /*appBar: AppBar(
           title: const Text('Create Data Example'),
         ),*/
-        body: Container(
+        body:
+          RootWidget()
+        /*Container(
           alignment: Alignment.center,
           padding: const EdgeInsets.all(8.0),
           child: (_futureCocktail == null) ? buildColumn() : buildFutureBuilder(),
-        ),
+        ),*/
       ),
     );
   }
@@ -92,12 +98,12 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  FutureBuilder<String> buildFutureBuilder() {
-    return FutureBuilder<String>(
+  FutureBuilder<Map<String, dynamic>> buildFutureBuilder() {
+    return FutureBuilder<Map<String, dynamic>>(
       future: _futureCocktail,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Text(snapshot.data!);
+          return Text(snapshot.data!['drinks'][0]['strDrink']);
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');
         }
