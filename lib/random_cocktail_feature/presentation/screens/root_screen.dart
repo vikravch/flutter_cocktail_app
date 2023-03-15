@@ -1,7 +1,7 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:test_new_project/presentation/screens/random_screen.dart';
 
+import 'random_screen.dart';
 class RootWidget extends StatefulWidget {
   const RootWidget({Key? key}) : super(key: key);
 
