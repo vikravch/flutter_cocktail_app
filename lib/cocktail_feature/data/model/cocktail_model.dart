@@ -11,10 +11,22 @@ class CocktailModel extends Cocktail{
     );
   }
 
+  factory CocktailModel.fromJsonObj(Map<String, dynamic> json) {
+    return CocktailModel(
+      id: json['idDrink'],
+      name: json['strDrink'],
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
       'name': name,
     };
+  }
+
+  static List<CocktailModel> fromJsonList(Map<String, dynamic> json) {
+    var list = json['drinks'] as List;
+    return list.map((e) => CocktailModel.fromJsonObj(e as Map<String, dynamic>) ).toList();
   }
 }

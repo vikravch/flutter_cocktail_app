@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:test_new_project/cocktail_feature/presentation/screens/categories_screen.dart';
 
 import 'random_screen.dart';
 class RootWidget extends StatefulWidget {
@@ -14,7 +15,7 @@ class _RootWidgetState extends State<RootWidget> {
   static final List<Widget> _widgetOptions = <Widget>[
     const RandomScreen(),
     const Text("Search cocktail"),
-    const Text("History"),
+    const CategoriesScreen(),
     const Text("Profile"),
   ];
 

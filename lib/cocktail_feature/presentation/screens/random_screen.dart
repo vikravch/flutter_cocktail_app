@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import '../../../di/createDependencies.dart';
-import '../cubit/random_cocktail.dart';
-import '../cubit/random_cocktail_state.dart';
+import '../cubit/random_cocktail/random_cocktail.dart';
+import '../cubit/random_cocktail/random_cocktail_state.dart';
 import '../utils/app_layout.dart';
 import '../utils/app_styles.dart';
 

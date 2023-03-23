@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../domain/entity/cocktail.dart';
+import '../../../domain/entity/cocktail.dart';
+
 
 abstract class RandomCocktailState extends Equatable {
   const RandomCocktailState();

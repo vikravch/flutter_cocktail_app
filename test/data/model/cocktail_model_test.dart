@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:test_new_project/cocktail_feature/data/model/cocktail_model.dart';
+import 'package:test_new_project/cocktail_feature/domain/entity/cocktail.dart';
 
-import 'package:test_new_project/random_cocktail_feature/data/model/cocktail_model.dart';
-import 'package:test_new_project/random_cocktail_feature/domain/entity/cocktail.dart';
 
 import '../../fixtures/fixture_reader.dart';
 
@@ -29,5 +29,16 @@ group('fromJson', () {
       expect(result, tCocktailModel);
     });
   });
-
+  group('fromJsonObj', () {
+    test('should return a valid model when the JSON number is an integer',
+            () async {
+          // arrange
+          final jsonMap =
+          json.decode(fixture('one_cocktail.json')) as Map<String, dynamic>;
+          // act
+          final result = CocktailModel.fromJsonObj(jsonMap);
+          // assert
+          expect(result, tCocktailModel);
+        });
+  });
 }

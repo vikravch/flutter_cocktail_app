@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_new_project/di/createDependencies.dart' as di;
 
-import 'random_cocktail_feature/presentation/screens/root_screen.dart';
+import 'cocktail_feature/presentation/screens/root_screen.dart';
+
 
 void main() async {
   await di.init();

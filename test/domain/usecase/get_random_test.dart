@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:test_new_project/cocktail_feature/domain/entity/cocktail.dart';
+import 'package:test_new_project/cocktail_feature/domain/repository/cocktail_repository.dart';
+import 'package:test_new_project/cocktail_feature/domain/usecase/get_random_cocktail.dart';
 import 'package:test_new_project/core/usecases/usecase.dart';
-import 'package:test_new_project/random_cocktail_feature/domain/entity/cocktail.dart';
-import 'package:test_new_project/random_cocktail_feature/domain/repository/cocktail_repository.dart';
-import 'package:test_new_project/random_cocktail_feature/domain/usecase/get_random_cocktail.dart';
 
 class MockCocktailRepository extends Mock implements CocktailRepository {}
 
